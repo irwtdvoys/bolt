@@ -35,22 +35,7 @@
 
 		public function getRangeData($total = null, $type = "indices")
 		{
-			if (strpos($this->headers->range(), $type  . "=") !== 0)
-			{
-				return false;
-			}
-
-			list($range['start'], $range['end']) = explode("-", str_replace($type . "=", "", $this->headers->range()));
-
-			if ($total !== null)
-			{
-				if ($range['end'] > ($total - 1))
-				{
-					$range['end'] = $total - 1;
-				}
-			}
-
-			return $range;
+			return new Request\Range($this->headers->range(), $total);
 		}
 	}
 ?>
