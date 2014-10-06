@@ -1,7 +1,7 @@
 <?php
 	namespace Bolt\Api\Route;
 
-	class Rule
+	class Rule extends \Bolt\Base
 	{
 		public $request;
 		public $route;

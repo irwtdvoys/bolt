@@ -1,7 +1,7 @@
 <?php
 	namespace Bolt;
 
-	class Crypto
+	class Crypto extends Base
 	{
 		private $mod = null; // Resource
 		private $vector;

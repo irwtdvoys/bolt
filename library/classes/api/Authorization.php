@@ -1,7 +1,7 @@
 <?php
 	namespace Bolt\Api;
 
-	class Authorization extends \Bolt\Model
+	class Authorization extends \Bolt\Base
 	{
 		public $scheme;
 		public $parameters;

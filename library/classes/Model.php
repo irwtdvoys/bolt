@@ -1,30 +1,11 @@
 <?php
 	namespace Bolt;
 
-	class Model
+	class Model extends Base
 	{
 		public function __construct($data = false)
 		{
 			$this->populate($data);
-		}
-
-		protected function getProperties()
-		{
-			$reflection = new \ReflectionClass($this->className());
-			return $reflection->getProperties(\ReflectionProperty::IS_PUBLIC);
-		}
-
-		public function className($full = true)
-		{
-			$className = get_class($this);
-
-			if ($full === false)
-			{
-				$namespace = explode("\\", $className);
-				$className = $namespace[count($namespace) - 1];
-			}
-
-			return $className;
 		}
 
 		public function __toString()
@@ -203,34 +184,9 @@
 			}
 		}
 
-		private function calculateNamespace($object)
-		{
-			$namespace = array(
-				__NAMESPACE__,
-				$this->className(),
-				ucwords($object->class)
-			);
-
-			$namespace = array_values(array_filter($namespace));
-			$className = implode("\\", $namespace);
-
-			return $className;
-		}
-
 		public function output()
 		{
 			return json_decode((string)$this);
-		}
-
-		public function __call($name, $args)
-		{
-			if ($args == array())
-			{
-				return $this->$name;
-			}
-
-			$this->$name = $args[0];
-			return true;
 		}
 
 		public function isEmpty()

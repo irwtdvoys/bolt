@@ -1,7 +1,7 @@
 <?php
 	namespace Bolt\Api\Route;
 
-	class Info
+	class Info extends \Bolt\Base
 	{
 		public $verb;
 		public $controller;

@@ -1,21 +1,16 @@
 <?php
 	namespace Bolt;
 
-	class Controller
+	class Controller extends Base
 	{
 		protected $dbo;
 		public $userId;
 
-		public function __construct(\Bolt\Dbo $dbo)
+		public function __construct(Dbo $dbo)
 		{
 			global $_USERID;
 			$this->userId = $_USERID;
 			$this->dbo = $dbo;
-		}
-
-		public function className()
-		{
-			return get_class($this);
 		}
 
 		public function __toString()
