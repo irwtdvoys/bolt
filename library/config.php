@@ -4,9 +4,8 @@
 	define("API_NAME", "BOLT_DEV");
 
 	// Versioning
-	define("VERSION_EXTERNAL_AUTH", "v1.5.2");
-	define("VERSION_INTERNAL_BOLT", "v1.2.2");
-	define("VERSION_INTERNAL_API", "test");
+	define("VERSION_INTERNAL_BOLT", "v0.0.0");
+	define("VERSION_INTERNAL_API", "bolt");
 
 	if (DEPLOYMENT == "development") // Framework expects server to be setup with no errors displayed
 	{
@@ -14,7 +13,6 @@
 		ini_set("error_reporting", E_ALL & ~E_NOTICE);
 	}
 
-	require_once(ROOT_SERVER . "library/plugins/plugins.php");
 	require_once(ROOT_SERVER . "library/functions.php");
 	require_once(ROOT_SERVER . "library/classes/Handler.php");
 
