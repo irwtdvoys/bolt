@@ -1,0 +1,8 @@
+[
+	{
+		"controller": "Health"
+	},
+	{
+		"controller": "Logs"
+	}
+]

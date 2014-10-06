@@ -1,0 +1,7 @@
+# IDE Files
+*.komodoproject
+*.komodotools
+.idea
+
+# Framework Files
+library/config/*.php

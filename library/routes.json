@@ -1,0 +1,42 @@
+[
+    {
+        "request": {
+            "controller": "(:any)",
+			"id": "/^(?!me$)[A-z]*$/"
+        },
+        "route": {
+            "controller": "[first|(:controller)]",
+            "method": "[lower|(:verb)][first|(:id)]"
+        }
+    },
+    {
+        "request": {
+            "controller": "(:any)",
+            "id": "(:any)",
+            "action": "(:any)"
+        },
+        "route": {
+            "controller": "[first|(:controller)]",
+            "method": "[lower|(:verb)]ById[first|(:action)]"
+        }
+    },
+    {
+        "request": {
+            "controller": "(:any)",
+            "id": "(:any)"
+        },
+        "route": {
+            "controller": "[first|(:controller)]",
+            "method": "[lower|(:verb)]ById"
+        }
+    },
+    {
+        "request": {
+            "controller": "(:any)"
+        },
+        "route": {
+            "controller": "[first|(:controller)]",
+            "method": "[lower|(:verb)]"
+        }
+    }
+]

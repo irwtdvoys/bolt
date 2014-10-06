@@ -1,0 +1,9 @@
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Headers "Authorization,Content-Type,Range"
+Header set Access-Control-Expose-Headers "Content-Range"
+Header set Accept-Ranges "indices"
+
+RewriteEngine On														# Turn on the rewriting engine
+
+RewriteRule		^index.php|robots.txt$		-				[L]			# Don't rewrite calls to index.php or robots.txt
+RewriteRule		(.*)						index.php		[QSA,L]		# API calls
