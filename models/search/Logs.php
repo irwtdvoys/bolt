@@ -29,9 +29,12 @@
 			$SQL = "SELECT * FROM `logs` WHERE `category` = :category AND `event` = :event AND `timestamp` BETWEEN :from AND :to ORDER BY `timestamp` DESC LIMIT :start, :quantity";
 			$records = $this->dbo->query($SQL, $this->fields(array("from" => $from, "quantity" => $quantity)), false, \PDO::FETCH_CLASS, "\\Models\\Dbo\\Log");
 
-			foreach ($records as &$record)
+			if ($records !== false)
 			{
-				$record = $record->fromDbo();
+				foreach ($records as &$record)
+				{
+					$record = $record->fromDbo();
+				}
 			}
 
 			return $records;
