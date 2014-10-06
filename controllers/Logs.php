@@ -21,17 +21,24 @@
 			$total = $search->count();
 			$range = $api->request->getRangeData($total);
 
-			if ($range['start'] > ($total - 1) || $range['end'] < 0)
+			if ($range->start() > max(0, ($total - 1)))
 			{
 				$api->response->status(416);
 			}
 
-			$number = ($range['end'] - $range['start']) + 1;
+			$number = ($range->end() - $range->start()) + 1;
 
-			$api->response->addHeader("Content-Range: indices " . $range['start'] . "-" . $range['end'] . "/" . $total);
-			$api->response->code = ($number == $total) ? 200 : 206;
+			$api->response->addHeader("Content-Range: indices " . $range->start() . "-" . $range->end() . "/" . $total);
+			$api->response->code = ($number == $total || $total === 0) ? 200 : 206;
 
-			return $search->execute($range['start'], $number);
+			$logs = $search->execute($range->start(), $number);
+
+			if ($logs === false)
+			{
+				$logs = array();
+			}
+
+			return $logs;
 		}
 	}
 ?>
