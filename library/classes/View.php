@@ -1,13 +1,8 @@
 <?php
 	namespace Bolt;
 
-	class View
+	class View extends Base
 	{
-		public function className()
-		{
-			return get_class($this);
-		}
-
 		public function __toString()
 		{
 			return "API Object: " . $this->className();

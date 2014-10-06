@@ -1,7 +1,7 @@
 <?php
 	namespace Bolt;
 
-	class Route
+	class Route extends Base
 	{
 		public $request;
 		public $route;

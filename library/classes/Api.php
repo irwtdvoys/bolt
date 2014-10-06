@@ -1,7 +1,7 @@
 <?php
 	namespace Bolt;
 
-	class Api
+	class Api extends Base
 	{
 		public $request;
 		public $response;
@@ -15,7 +15,7 @@
 		private $permissions;
 		private $whitelist;
 
-		public function __construct(\Bolt\Dbo $dbo)
+		public function __construct(Dbo $dbo)
 		{
 			$this->files = new Files();
 			$this->dbo = $dbo;
