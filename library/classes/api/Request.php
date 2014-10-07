@@ -9,23 +9,16 @@
 
 		public function __construct()
 		{
-            $this->parseFiles();
-
             $this->headers = new Request\Headers(true);
 			$this->parameters = new Request\Parameters(true);
+			$this->files = new Request\Files(true);
 
 			$this->format = isset($this->parameters->format) ? $this->parameters->format() : "json";
 		}
 
-		public function parseFiles()
+		public function files()
 		{
-			if (count($_FILES) > 0)
-			{
-				foreach ($_FILES as $file)
-				{
-					$this->files[] = $file;
-				}
-			}
+			return $this->files->uploads();
 		}
 
 		public function parameters()
