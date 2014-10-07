@@ -23,15 +23,5 @@
 		require_once(ROOT_SERVER . "library/config/" . $next . ".php");
 	}
 
-	$connection = array(
-		"type" => DB_TYPE,
-		"host" => DB_HOST,
-		"port" => DB_PORT,
-		"database" => DB_NAME,
-		"username" => DB_USER,
-		"password" => DB_PASS,
-		"autoconnect" => true
-	);
-
 	$_USERID = 0;
 ?>
