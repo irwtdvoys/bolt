@@ -9,7 +9,7 @@
 
 		public function __construct()
 		{
-            $this->headers = new Request\Headers(true);
+			$this->headers = new Request\Headers(true);
 			$this->parameters = new Request\Parameters(true);
 			$this->files = new Request\Files(true);
 
@@ -23,12 +23,17 @@
 
 		public function parameters()
 		{
-			return $this->parameters->parameters;
+			return $this->parameters->parameters();
+		}
+
+		public function headers()
+		{
+			return $this->parameters->headers();
 		}
 
 		public function getRangeData($total = null, $type = "indices")
 		{
-			return new Request\Range($this->headers->range(), $total);
+			return new Request\Range($this->headers->range(), $total, $type);
 		}
 	}
 ?>
