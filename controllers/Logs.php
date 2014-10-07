@@ -17,7 +17,7 @@
 				$api->response->status(400, "Missing parameter '" . $check . "'");
 			}
 
-			$search = new \Models\Search\Logs($api->request->parameters());
+			$search = new \Models\Search\Logs($api->connections->dbo(), $api->request->parameters());
 			$total = $search->count();
 			$range = $api->request->getRangeData($total);
 

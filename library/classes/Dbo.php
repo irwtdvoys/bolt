@@ -1,7 +1,7 @@
 <?php
 	namespace Bolt;
 
-	class Dbo
+	class Dbo extends Base
 	{
 		protected $connection;
 		private $details = array();

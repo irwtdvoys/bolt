@@ -9,6 +9,7 @@
 
 	$dbo = new Bolt\Dbo($connection);
 	$api = new Bolt\Api($dbo);
+	$api->connections->assign("dbo", 0);
 
 	$controllerName = "Controllers\\" . $api->route->controller;
 

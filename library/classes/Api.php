@@ -7,18 +7,16 @@
 		public $response;
 		public $auth;
 
-		protected $files;
-		protected $dbo;
+		public $connections;
 
 		public $route;
 
 		private $permissions;
 		private $whitelist;
 
-		public function __construct(Dbo $dbo)
+		public function __construct($connections)
 		{
-			$this->files = new Files();
-			$this->dbo = $dbo;
+			$this->connections = new Api\Connections($connections);
 
 			$this->response = new Api\Response();
 			$this->request = new Api\Request();
@@ -122,7 +120,8 @@
 
 		private function loadJsonConfig($filename)
 		{
-			return json_decode($this->files->load($filename));
+			$fileHandler = new Files();
+			return json_decode($fileHandler->load($filename));
 		}
 
 		public function fetchAvailableOptions()
