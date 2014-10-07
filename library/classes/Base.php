@@ -3,6 +3,30 @@
 
 	class Base
 	{
+		public function __construct($data = null)
+		{
+			if ($data !== null)
+			{
+				$this->populate($data);
+			}
+		}
+
+		private function populate($data)
+		{
+			$properties = $this->getProperties();
+
+			if (count($properties) > 0)
+			{
+				foreach ($properties as $property)
+				{
+					$value = is_array($data) ? $data[$property->name] : $data->{$property->name};
+					$this->{$property->name}($value);
+				}
+			}
+
+			return true;
+		}
+
 		protected function getProperties()
 		{
 			$reflection = new \ReflectionClass($this->className());
