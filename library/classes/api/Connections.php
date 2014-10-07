@@ -22,26 +22,21 @@
 				}
 			}
 		}
-		
+
 		public function add($connection)
 		{
 			$this->sources[] = $connection;
 		}
-		
-		public function dbo()
+
+		public function assign($name, $index)
 		{
-			return $this->filter("Bolt\Dbo");
+			$this->$name = &$this->sources[$index];
 		}
-		
-		public function eso()
-		{
-			return $this->filter("Bolt\Eso");
-		}
-		
+
 		private function filter($className)
 		{
 			$results = array();
-			
+
 			foreach ($this->sources as $source)
 			{
 				if ($source->className() == $className)
@@ -49,7 +44,7 @@
 					$results[] = $source;
 				}
 			}
-			
+
 			return $results;
 		}
 	}
