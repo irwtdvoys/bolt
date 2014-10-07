@@ -24,19 +24,9 @@
 			$this->disconnect();
 		}
 
-		public function getState()
+		public function state()
 		{
 			return ($this->connection == "") ? "Disconnected" : "Connected";
-		}
-
-		public function getType()
-		{
-			return $this->details['type'];
-		}
-
-		public function setType($type)
-		{
-			$this->details['type'] = $type;
 		}
 
 		public function connect()
