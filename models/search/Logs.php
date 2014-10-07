@@ -9,10 +9,8 @@
 
 		private $dbo;
 
-		public function __construct($data = false)
+		public function __construct($dbo, $data = false)
 		{
-			global $dbo;
-
 			$this->dbo = $dbo;
 
 			parent::__construct($data);
