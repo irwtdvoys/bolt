@@ -6,11 +6,10 @@
 		protected $dbo;
 		public $userId;
 
-		public function __construct(Dbo $dbo)
+		public function __construct()
 		{
 			global $_USERID;
 			$this->userId = $_USERID;
-			$this->dbo = $dbo;
 		}
 
 		public function __toString()
