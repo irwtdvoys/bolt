@@ -1,0 +1,71 @@
+<?php
+	namespace Bolt\Codes;
+
+	class Curl extends \Bolt\Codes
+	{
+		const UNSUPPORTED_PROTOCOL = 1;
+		const FAILED_INIT = 2;
+		const URL_MALFORMAT = 3;
+		const URL_MALFORMAT_USER = 4;
+		const COULDNT_RESOLVE_PROXY = 5;
+		const COULDNT_RESOLVE_HOST = 6;
+		const COULDNT_CONNECT = 7;
+		const FTP_WEIRD_SERVER_REPLY = 8;
+		const FTP_ACCESS_DENIED = 9;
+		const FTP_USER_PASSWORD_INCORRECT = 10;
+		const FTP_WEIRD_PASS_REPLY = 11;
+		const FTP_WEIRD_USER_REPLY = 12;
+		const FTP_WEIRD_PASV_REPLY = 13;
+		const FTP_WEIRD_227_FORMAT = 14;
+		const FTP_CANT_GET_HOST = 15;
+		const FTP_CANT_RECONNECT = 16;
+		const FTP_COULDNT_SET_BINARY = 17;
+		const PARTIAL_FILE = 18;
+		const FTP_COULDNT_RETR_FILE = 19;
+		const FTP_WRITE_ERROR = 20;
+		const FTP_QUOTE_ERROR = 21;
+		const HTTP_NOT_FOUND = 22;
+		const WRITE_ERROR = 23;
+		const MALFORMAT_USER = 24;
+		const FTP_COULDNT_STOR_FILE = 25;
+		const READ_ERROR = 26;
+		const OUT_OF_MEMORY = 27;
+		const OPERATION_TIMEDOUT = 28;
+		const FTP_COULDNT_SET_ASCII = 29;
+		const FTP_PORT_FAILED = 30;
+		const FTP_COULDNT_USE_REST = 31;
+		const FTP_COULDNT_GET_SIZE = 32;
+		const HTTP_RANGE_ERROR = 33;
+		const HTTP_POST_ERROR = 34;
+		const SSL_CONNECT_ERROR = 35;
+		const FTP_BAD_DOWNLOAD_RESUME = 36;
+		const FILE_COULDNT_READ_FILE = 37;
+		const LDAP_CANNOT_BIND = 38;
+		const LDAP_SEARCH_FAILED = 39;
+		const LIBRARY_NOT_FOUND = 40;
+		const FUNCTION_NOT_FOUND = 41;
+		const ABORTED_BY_CALLBACK = 42;
+		const BAD_FUNCTION_ARGUMENT = 43;
+		const BAD_CALLING_ORDER = 44;
+		const HTTP_PORT_FAILED = 45;
+		const BAD_PASSWORD_ENTERED = 46;
+		const TOO_MANY_REDIRECTS = 47;
+		const UNKNOWN_TELNET_OPTION = 48;
+		const TELNET_OPTION_SYNTAX = 49;
+		const OBSOLETE = 50;
+		const SSL_PEER_CERTIFICATE = 51;
+		const GOT_NOTHING = 52;
+		const SSL_ENGINE_NOTFOUND = 53;
+		const SSL_ENGINE_SETFAILED = 54;
+		const SEND_ERROR = 55;
+		const RECV_ERROR = 56;
+		const SHARE_IN_USE = 57;
+		const SSL_CERTPROBLEM = 58;
+		const SSL_CIPHER = 59;
+		const SSL_CACERT = 60;
+		const BAD_CONTENT_ENCODING = 61;
+		const LDAP_INVALID_URL = 62;
+		const FILESIZE_EXCEEDED = 63;
+		const FTP_SSL_FAILED = 64;
+	}
+?>
