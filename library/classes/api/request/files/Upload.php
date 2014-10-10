@@ -3,10 +3,11 @@
 
 	class Upload extends \Bolt\Base
 	{
+		public $field;
 		public $name;
-		public $type;
-		public $tmp_name;
-		public $error;
+		public $mime;
 		public $size;
+		public $location;
+		public $error;
 	}
 ?>
