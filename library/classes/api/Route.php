@@ -16,11 +16,11 @@
 
 			if ($auto === true)
 			{
-				$this->populate();
+				$this->load();
 			}
 		}
 
-		public function populate()
+		public function load()
 		{
 			$this->loadRules();
 
