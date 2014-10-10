@@ -71,5 +71,33 @@
 
 			return true;
 		}
+
+		public function filter(Files\Filter $filter)
+		{
+			$results = array();
+
+			foreach ($this->uploads() as $next)
+			{
+				$matched = true;
+
+				foreach ($filter as $key => $value)
+				{
+					if ($value !== null)
+					{
+						if ($next->{$key}() != $value)
+						{
+							$matched = false;
+						}
+					}
+				}
+
+				if ($matched === true)
+				{
+					$results[] = $next;
+				}
+			}
+
+			return $results;
+		}
 	}
 ?>
