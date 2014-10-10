@@ -7,7 +7,7 @@
 		private $new = false;
 		protected $table = null;
 
-		public function __construct(\Bolt\Dbo $dbo = null, $data = false)
+		public function __construct(\Bolt\Dbo $dbo = null, $data = null)
 		{
 			if ($dbo === null)
 			{

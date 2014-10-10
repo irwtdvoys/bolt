@@ -13,12 +13,12 @@
 
 		protected $files;
 
-		public function __construct($delimiter = ",", $enclosure = '"', $object = false)
+		public function __construct($delimiter = ",", $enclosure = '"', $object = null)
 		{
 			$this->delimiter = $delimiter;
 			$this->enclosure = $enclosure;
 
-			if ($object !== false)
+			if ($object !== null)
 			{
 				$this->addData($object);
 			}
