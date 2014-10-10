@@ -9,5 +9,10 @@
 		public $size;
 		public $location;
 		public $error;
+
+		public function exists()
+		{
+			return file_exists($this->location());
+		}
 	}
 ?>
