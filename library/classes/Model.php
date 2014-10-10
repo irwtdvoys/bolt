@@ -3,7 +3,7 @@
 
 	class Model extends Base
 	{
-		public function __construct($data = false)
+		public function __construct($data = null)
 		{
 			$this->populate($data);
 		}
@@ -99,9 +99,9 @@
 			return json_encode($results);
 		}
 
-		public function populate($data = false)
+		public function populate($data = null)
 		{
-			if ($data !== false)
+			if ($data !== null)
 			{
 				if (is_string($data))
 				{
