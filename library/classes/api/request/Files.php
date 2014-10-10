@@ -35,11 +35,37 @@
 		{
 			if (count($_FILES) > 0)
 			{
-				// Todo: Handle the two known formats of $_FILES
-				foreach ($_FILES as $file)
+				foreach ($_FILES as $field => $data)
 				{
-				dump($file);
-					$this->add(new Files\Upload($file));
+					if (is_array($data['name']))
+					{
+						for ($index = 0; $index < count($data['name']); $index++)
+						{
+							$upload = array(
+								"field" => $field,
+								"name" => $data['name'][$index],
+								"mime" => $data['type'][$index],
+								"size" => $data['size'][$index],
+								"location" => $data['tmp_name'][$index],
+								"error" => $data['error'][$index]
+							);
+
+							$this->add(new Files\Upload($upload));
+						}
+					}
+					else
+					{
+						$upload = array(
+							"field" => $field,
+							"name" => $data['name'],
+							"mime" => $data['type'],
+							"size" => $data['size'],
+							"location" => $data['tmp_name'],
+							"error" => $data['error']
+						);
+
+						$this->add(new Files\Upload($upload));
+					}
 				}
 			}
 
