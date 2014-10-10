@@ -1,7 +1,7 @@
 <?php
 	// General
-	define("DEPLOYMENT", "development"); // development/testing/production
-	define("API_NAME", "BOLT_DEV");
+	define("DEPLOYMENT", "production"); // development/testing/production
+	define("API_NAME", "BOLT_LIVE");
 
 	// Versioning
 	define("VERSION_INTERNAL_BOLT", "v0.1.0");
