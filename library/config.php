@@ -4,8 +4,8 @@
 	define("API_NAME", "BOLT_DEV");
 
 	// Versioning
-	define("VERSION_INTERNAL_BOLT", "v0.0.0");
-	define("VERSION_INTERNAL_API", "bolt");
+	define("VERSION_INTERNAL_BOLT", "v0.1.0");
+	define("VERSION_INTERNAL_API", "v0.1");
 
 	if (DEPLOYMENT == "development") // Framework expects server to be setup with no errors displayed
 	{
