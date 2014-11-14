@@ -24,11 +24,6 @@
 			$this->disconnect();
 		}
 
-		public function state()
-		{
-			return ($this->connection == "") ? "Disconnected" : "Connected";
-		}
-
 		public function ping()
 		{
 			if ($this->connection === null)
