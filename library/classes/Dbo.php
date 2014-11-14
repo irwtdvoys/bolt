@@ -29,6 +29,20 @@
 			return ($this->connection == "") ? "Disconnected" : "Connected";
 		}
 
+		public function ping()
+		{
+			try
+			{
+				$this->connection->query("DO 1");
+			}
+			catch (Exception $exception)
+			{
+				return false;
+			}
+
+			return true;
+		}
+
 		public function connect()
 		{
 			$options = array();
