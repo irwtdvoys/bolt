@@ -31,6 +31,11 @@
 
 		public function ping()
 		{
+			if ($this->connection === null)
+			{
+				return false;
+			}
+
 			try
 			{
 				$this->connection->query("DO 1");
