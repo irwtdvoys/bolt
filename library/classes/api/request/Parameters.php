@@ -25,6 +25,11 @@
 
 		public function __call($name, $arguments)
 		{
+			if ($name == "parameters")
+			{
+				return $this->parameters;
+			}
+
 			if ($arguments == array())
 			{
 				return $this->parameters[$name];
