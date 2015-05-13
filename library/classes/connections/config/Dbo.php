@@ -1,7 +1,7 @@
 <?php
-	namespace Bolt\Dbo;
+	namespace Bolt\Connections\Config;
 
-	class Config extends \Bolt\Base
+	class Dbo extends \Bolt\Base
 	{
 		public $type;
 		public $host;
@@ -10,11 +10,11 @@
 		public $username;
 		public $password;
 		public $auto;
-		
+
 		public function __construct($data = null)
 		{
 			parent::__construct($data);
-			
+
 			$this->auto((bool)$this->auto());
 		}
 	}
