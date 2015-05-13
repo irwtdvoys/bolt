@@ -7,7 +7,7 @@
 	set_error_handler(array("Bolt\\Handler", "error"), E_ALL & ~E_NOTICE);
 	set_exception_handler(array("Bolt\\Handler", "exception"));
 
-	$config = new Bolt\Dbo\Config(array(
+	$config = new Bolt\Connections\Config\Dbo(array(
 		"type" => DB_TYPE,
 		"host" => DB_HOST,
 		"port" => DB_PORT,
