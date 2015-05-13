@@ -7,7 +7,7 @@
 	set_error_handler(array("Bolt\\Handler", "error"), E_ALL & ~E_NOTICE);
 	set_exception_handler(array("Bolt\\Handler", "exception"));
 
-	$config = new Bolt\Dbo\Config(array(
+	$config = new Bolt\Connections\Config\Dbo(array(
 		"type" => DB_TYPE,
 		"host" => DB_HOST,
 		"port" => DB_PORT,
@@ -17,19 +17,18 @@
 		"auto" => true
 	));
 
-	$dbo = new Bolt\Dbo($config);
-	$api = new Bolt\Api($dbo);
-	$api->connections->assign("dbo", 0);
+	$api = new Bolt\Api();
+	$api->connections->add(new Bolt\Connections\Dbo($config), "dbo");
 
 	$controllerName = "Controllers\\" . $api->route->controller;
 
 	if (class_exists($controllerName))
 	{
-		$controller = new $controllerName($dbo);
+		$controller = new $controllerName();
 
-		if (method_exists($controller, $api->route->method))
+		if (method_exists($controller, $api->route->method()))
 		{
-			$api->response->data = $controller->{$api->route->method}($api);
+			$api->response->data($controller->{$api->route->method()}($api));
 		}
 	}
 	elseif ($api->route->controller == "")
@@ -37,11 +36,11 @@
 		$config = new Bolt\Config();
 		$versioning = $config->versionInfo();
 
-		$api->response->data = array(
+		$api->response->data(array(
 			"name" => API_NAME,
 			"deployment" => DEPLOYMENT,
 			"versioning" => $versioning['version']
-		);
+		));
 	}
 
 	$api->response->output();

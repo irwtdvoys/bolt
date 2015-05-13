@@ -14,7 +14,7 @@
 		private $permissions;
 		private $whitelist;
 
-		public function __construct($connections)
+		public function __construct($connections = null)
 		{
 			$this->connections = new Api\Connections($connections);
 

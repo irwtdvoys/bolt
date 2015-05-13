@@ -1,21 +1,18 @@
 <?php
-	namespace Bolt;
+	namespace Bolt\Connections;
 
-	class Dbo extends Base
+	class Dbo extends \Bolt\Base implements \Bolt\Interfaces\Connection
 	{
 		protected $connection;
-		public $config = array();
+		public $config;
 
-		public function __construct($config = null)
+		public function __construct(Config\Dbo $config)
 		{
-			if ($config !== null)
-			{
-				$this->config(new Dbo\Config($config));
+			$this->config($config);
 
-				if ($this->config->auto() === true)
-				{
-					$this->connect();
-				}
+			if ($this->config->auto() === true)
+			{
+				$this->connect();
 			}
 		}
 
@@ -24,23 +21,14 @@
 			$this->disconnect();
 		}
 
-		public function ping()
+		public function type()
 		{
-			if ($this->connection === null)
-			{
-				return false;
-			}
+			return strtolower($this->className(false));
+		}
 
-			try
-			{
-				$this->connection->query("DO 1");
-			}
-			catch (Exception $exception)
-			{
-				return false;
-			}
-
-			return true;
+		public function state()
+		{
+			return ($this->connection == "") ? "Disconnected" : "Connected";
 		}
 
 		public function connect()
@@ -64,24 +52,24 @@
 
 			try
 			{
-				$this->connection = new \PDO($dsn, $this->config->username(), $this->config->password(), $options);
+				$this->connection(new \PDO($dsn, $this->config->username(), $this->config->password(), $options));
 			}
 			catch (\PDOException $error)
 			{
-				throw new Exceptions\Dbo($error);
+				throw new \Bolt\Exceptions\Dbo($error);
 			}
 		}
 
 		public function disconnect()
 		{
-			$this->connection = null;
+			$this->connection(null);
 		}
 
 		public function query($SQL, $parameters = array(), $return = false, $style = \PDO::FETCH_ASSOC, $argument = null)
 		{
 			if ($this->connection == "")
 			{
-				throw new Exceptions\Dbo();
+				throw new \Bolt\Exceptions\Dbo();
 			}
 
 			$results = array();
@@ -92,7 +80,7 @@
 			}
 			catch (\PDOException $error)
 			{
-				throw new Exceptions\Dbo($error);
+				throw new \Bolt\Exceptions\Dbo($error);
 			}
 
 			if (!is_array(reset($parameters)))
@@ -129,7 +117,7 @@
 						}
 						catch (\PDOException $error)
 						{
-							throw new Exceptions\Dbo($error);
+							throw new \Bolt\Exceptions\Dbo($error);
 						}
 					}
 				}
@@ -140,7 +128,7 @@
 				}
 				catch (\PDOException $error)
 				{
-					throw new Exceptions\Dbo($error);
+					throw new \Bolt\Exceptions\Dbo($error);
 				}
 			}
 
