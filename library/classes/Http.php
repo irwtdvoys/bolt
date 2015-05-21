@@ -1,7 +1,7 @@
 <?php
 	namespace Bolt;
 
-	class Http
+	class Http extends Base
 	{
 		public function groupLookup($code)
 		{
