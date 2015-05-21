@@ -204,7 +204,6 @@
 			}
 
 			$this->auth->parse($this->request->headers->authorization());
-			$result = false;
 
 			switch ($this->auth->scheme())
 			{

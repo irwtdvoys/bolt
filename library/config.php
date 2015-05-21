@@ -1,11 +1,11 @@
 <?php
 	// General
-	define("DEPLOYMENT", "production"); // development/testing/production
-	define("API_NAME", "BOLT_LIVE");
+	define("DEPLOYMENT", "development"); // development/testing/production
+	define("API_NAME", "BOLT_DEV");
 
 	// Versioning
-	define("VERSION_INTERNAL_BOLT", "v0.1.2");
-	define("VERSION_INTERNAL_API", "v0.1");
+	define("VERSION_INTERNAL_BOLT", "v0.2.0");
+	define("VERSION_INTERNAL_API", "dev");
 
 	if (DEPLOYMENT == "development") // Framework expects server to be setup with no errors displayed
 	{
