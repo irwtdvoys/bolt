@@ -23,9 +23,14 @@
 			}
 		}
 
-		public function add($connection)
+		public function add($connection, $identifier = null)
 		{
 			$this->sources[] = $connection;
+
+			if ($identifier !== null)
+			{
+				$this->assign($identifier, count($this->sources) - 1);
+			}
 		}
 
 		public function assign($name, $index)
