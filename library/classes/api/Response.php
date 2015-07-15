@@ -35,7 +35,11 @@
 
 			$group = $this->groupLookup($this->code);
 
-			if ($this->code >= 400 || $this->data === false)
+			if ($this->code == 204 || $this->code == 304)
+			{
+				$result = null;
+			}
+			elseif ($this->code >= 400 || $this->data === false)
 			{
 				$result = array(
 					$group => array(
@@ -48,10 +52,6 @@
 				{
 					$result[$group]['data'] = $this->data;
 				}
-			}
-			elseif ($this->code == 204 || $this->code == 304)
-			{
-				$result = null;
 			}
 			else
 			{
