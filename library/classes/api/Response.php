@@ -67,6 +67,11 @@
 		{
 			$this->code = $code;
 
+			if ($code == 419)
+			{
+				$this->addHeader("HTTP/1.1 419 Authentication Timeout");
+			}
+
 			if ($data !== false)
 			{
 				$this->data = $data;
